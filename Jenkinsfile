@@ -1,6 +1,11 @@
 pipeline{
     agent any
 
+    environment {
+        PROJECT_NAME = "Hello"
+        OWNER_NAME = "World"
+    }
+
     stages{
         stage("1-Build"){
             steps{
@@ -13,6 +18,8 @@ pipeline{
             steps{
                 echo "Start of Stage Test"
                 echo "Testing..."
+                echo "Hello, ${OWNER_NAME}"
+                echo "Project name is ${PROJECT_NAME}"
                 echo "End of Stage Test"
             }
         }
